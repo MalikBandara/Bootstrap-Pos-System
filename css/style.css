@@ -1,0 +1,40 @@
+.header {
+    margin-bottom: 100px;
+}
+
+.icons {
+    height: 32px;
+    width: 32px;
+    color: blue;
+    padding: 30px;
+}
+.table-custom th {
+    background-color: #0099ff; /* Blue background */
+    color: white;
+    text-align: center;
+}
+.table-custom th,
+.table-custom td {
+    vertical-align: middle;
+    text-align: center;
+}
+.table-container {
+    background-color: #ccebff; /* Light blue background */
+    padding: 20px;
+}
+body {
+    font-family: "Poppins", sans-serif;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    margin: 20px;
+    gap: 20px;
+}
+
+.card-grid-apply {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+}

@@ -31,7 +31,7 @@
     }
 
     .btn {
-        width: 50%;
+        width: 20%;
         margin-bottom: 10px;
     }
     .button-update-clear-delete {
@@ -81,6 +81,10 @@
         .search-span{
             font-size: 10px;
         }
+        .btn {
+            width: 20%;
+            margin-bottom: 10px;
+        }
 
 
 
@@ -98,7 +102,7 @@
 
         /* Buttons should take full width */
         .btn {
-            width: 100%;
+            width: 20%;
             margin-bottom: 8px;
         }
 
@@ -162,7 +166,10 @@
 @media (max-width: 375px) {
     /* Adjust the header and navigation for smaller screens */
 
-
+    .btn {
+        width: 20%;
+        margin-bottom: 10px;
+    }
 
 
 
@@ -179,10 +186,7 @@
     }
 
     /* Buttons should take full width */
-    .btn {
-        width: 100%;
-        margin-bottom: 6px;
-    }
+
 
     /* Adjust the card padding and reduce spacing */
     .card {
@@ -259,7 +263,7 @@
 
     /* Buttons should take full width */
     .btn {
-        width: 100%;
+        width: 20%;
         margin-bottom: 5px;
     }
 
@@ -350,7 +354,7 @@
 
     .btn {
         font-size: 12px;
-        width: 100%;
+        width: 20%;
         margin-bottom: 8px;
     }
 

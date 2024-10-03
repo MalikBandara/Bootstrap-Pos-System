@@ -1,12 +1,17 @@
 .header {
     margin-bottom: 100px;
 }
-
+.home-header{
+    margin-bottom: 250px;
+}
+.order_header{
+    margin-bottom: 70px;
+}
 .icons {
-    height: 32px;
-    width: 32px;
+
     color: blue;
-    padding: 30px;
+    padding: 100px;
+    font-size: 35px;
 }
 .table-custom th {
     background-color: #0099ff; /* Blue background */

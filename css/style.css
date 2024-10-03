@@ -7,6 +7,7 @@
 .order_header{
     margin-bottom: 70px;
 }
+
 .icons {
 
     color: blue;
@@ -42,4 +43,10 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 10px;
+}
+
+
+/*login css*/
+.login-top-margin{
+    margin-top: 100px;
 }

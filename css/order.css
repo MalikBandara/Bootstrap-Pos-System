@@ -12,9 +12,11 @@
         grid-template-columns: 1fr;
     }
 
-    .navbar-nav {
-        text-align: center;
+    .btn{
+        width: 50%;
+        margin-bottom: 10px;
     }
+
     .table-custom {
         font-size: 12px;
     }
@@ -59,10 +61,7 @@
         grid-template-columns: 1fr;
     }
 
-    .navbar-nav {
-        display: flex;
-        flex-direction: column;
-    }
+
 
     .form-label,
     .form-control {

@@ -27,19 +27,19 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0  ">
                     <li class="nav-item ms-4">
-                        <a class="nav-link active text-light" aria-current="page" href="./index.html">Home</a>
+                        <a class="nav-link active text-light" aria-current="page"  id="home_nav">Home</a>
                     </li>
                     <li class="nav-item ms-4">
-                        <a class="nav-link text-light" href="working/customer.html">Customer</a>
+                        <a class="nav-link text-light"  id="customer_nav">Customer</a>
                     </li>
                     <li class="nav-item ms-4">
-                        <a class="nav-link text-light" href="working/item.html">Item</a>
+                        <a class="nav-link text-light"  id="item_nav">Item</a>
                     </li>
                     <li class="nav-item ms-4">
-                        <a class="nav-link text-light" href="working/order.html">Order</a>
+                        <a class="nav-link text-light"  id="order_nav">Order</a>
                     </li>
                     <li class="nav-item ms-4 ">
-                        <a href="./working/login.html" class="btn btn-light no" role="button">Sign Up</a>
+                        <a  class="btn btn-light no" role="button" id="sign-up-nav">Sign Up</a>
 
                     </li>
                     <li class="nav-item ms-4 ">
@@ -54,7 +54,7 @@
     </nav>
 </header>
 
-<section class="container ">
+<section class="container " id="homeDiv">
     <div class="row ">
         <div class="col-12 col-lg-4 mb-3">
             <a href="./working/customer.html" style="text-decoration: none;">
@@ -92,6 +92,479 @@
 </section>
 
 
+<!--Customer-->
+<div class="container" id="customerDiv">
+    <h1 class="mb-5">Manage Customer</h1>
+    <div class="row ">
+        <div class="col-12 col-lg-4 mb-3">
+            <div class="card p-5  bg-info bg-gradient bg-opacity-50 shadow">
+                <div class="mb-3">
+                    <label for="CustomerId" class="form-label">Customer Id</label>
+                    <input type="text" class="form-control" id="CustomerId" placeholder="">
+                </div>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Full Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="">
+                </div>
+                <div class="mb-3">
+                    <label for="address" class="form-label">Address</label>
+                    <textarea class="form-control" id="address" rows="3"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="contact" class="form-label">Salary</label>
+                    <input type="text" class="form-control" id="contact" placeholder="">
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+
+        <div class="col-12 col-lg-8 mb-1">
+
+
+            <div class="card p-5 bg-info bg-gradient bg-opacity-50 shadow">
+
+                <div class="card mb-4">
+                    <div class="card-header bg-opacity-25 bg-info ">
+                        Search Customer
+                    </div>
+                    <div class="card-body col-6">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Input Customer Name/Nic/Id Here"
+                                   aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <span class="input-group-text search-span" id="basic-addon23">search</span>
+                        </div>
+
+                        <div class="col-12 d-flex justify-content-lg-start align-items-center">
+                            <div class="col-5 ">
+                                <select class="form-select search-span" aria-label="Default select example">
+                                    <option selected>Search by</option>
+                                    <option value="1">Id</option>
+                                    <option value="2">Name</option>
+                                    <option value="3">Address</option>
+
+                                </select>
+                            </div>
+                            <button type="button" class="btn btn-success m-2">Search</button>
+                        </div>
+
+
+
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="table-responsive">
+                    <table class="table table-bordered table-custom">
+                        <thead>
+                        <tr>
+                            <th scope="col">C_ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Address</th>
+                            <th scope="col">Salary</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>C001</td>
+                            <td>Kamal</td>
+                            <td>Kandy</td>
+                            <td>10000.00</td>
+                        </tr>
+                        <tr>
+                            <td>C002</td>
+                            <td>John</td>
+                            <td>Panadura</td>
+                            <td>20000.00</td>
+                        </tr>
+                        <tr>
+                            <td>C003</td>
+                            <td>Sara</td>
+                            <td>Gampola</td>
+                            <td>30000.00</td>
+                        </tr>
+                        <tr>
+                            <td>C004</td>
+                            <td>Mary</td>
+                            <td>Colombo</td>
+                            <td>40000.00</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="pt-2 customer-btn">
+                    <button type="button" class="btn btn-success m-2">Save</button>
+                    <button type="button" class="btn btn-primary m-2">Update</button>
+                    <button type="button" class="btn btn-danger m-2">Delete</button>
+                    <button type="button" class="btn btn-secondary">Clear</button>
+                    <button type="button" class="btn btn-warning m-2">View all Customers</button>
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+
+
+    </div>
+</div>
+
+<!--item-->
+<div class="container" id="itemDiv">
+    <h1 class="mb-4">Manage Items</h1>
+    <div class="row">
+
+
+
+
+
+        <div class="col-12 col-lg-12 mb-1">
+
+
+
+
+            <div class="card p-5 bg-info bg-gradient bg-opacity-50 shadow">
+
+                <div class="row">
+
+                    <div class="card mb-4 col-6">
+                        <div class="card-header bg-opacity-25 bg-info ">
+                            Search Item
+                        </div>
+                        <!-- card new  -->
+                        <div class="col-9 d-flex">
+                            <div class="card-body col-6">
+                                <div class="d-flex mb-3"> <!-- Added bottom margin for separation -->
+                                    <div class="input-group flex-grow-1">
+                                        <!-- Use flex-grow to take available space -->
+                                        <input type="text" class="form-control"
+                                               placeholder="Input Item Name/Code Here"
+                                               aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                        <span class="input-group-text search-span" id="basic-addon2">Search</span>
+                                    </div>
+
+
+                                </div>
+
+                                <div class="col-12 d-flex justify-content-lg-start align-items-center mb-3">
+                                    <!-- Added margin bottom for separation -->
+                                    <div class="col-5 ">
+                                        <select class="form-select search-span" aria-label="Default select example">
+                                            <option selected>Search by</option>
+                                            <option value="1">Code</option>
+                                            <option value="2">Name</option>
+
+                                        </select>
+                                    </div>
+                                    <button type="button" class="btn btn-success m-2">Search</button>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- card end -->
+                    </div>
+
+
+
+                    <div class="col-6 col-lg-4 mb-3  ">
+
+
+                        <button type="button" class="btn btn-success m-2" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal">New Item</button>
+                        <button type="button" class="btn btn-warning m-2">View All Item</button>
+
+
+
+
+                    </div>
+
+                </div>
+
+
+
+
+                <div class="table-responsive">
+                    <table class="table table-bordered table-custom">
+                        <thead>
+                        <tr>
+                            <th scope="col">Item Code </th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Quantity</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Saban</td>
+                            <td>150.00</td>
+                            <td>55</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Shampoo</td>
+                            <td>350.00</td>
+                            <td>100</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Bucket</td>
+                            <td>500.00</td>
+                            <td>25</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Conditioner</td>
+                            <td>750.00</td>
+                            <td>100</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="pt-2 button-update-clear-delete">
+
+                    <button type="button" class="btn btn-primary m-2">Update</button>
+                    <button type="button" class="btn btn-danger m-2">Delete</button>
+                    <button type="button" class="btn btn-secondary">Clear</button>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="container my-4">
+
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header bg-primary text-light">
+                            <h5 class="modal-title " id="exampleModalLabel">New Item</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="col-12 col-lg-12 mb-3">
+                                <div class="card p-5   bg-gradient bg-opacity-50 shadow">
+                                    <div class="mb-3">
+                                        <label for="ItemId" class="form-label">Item Code:</label>
+                                        <input type="text" class="form-control" id="ItemId" placeholder="">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="Description" class="form-label">Item Name:</label>
+                                        <input type="text" class="form-control" id="Description" placeholder="">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="price" class="form-label">Item Price:</label>
+                                        <input type="text" class="form-control" id="price" placeholder="">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="Qty" class="form-label">Quantity:</label>
+                                        <input type="text" class="form-control" id="Qty" placeholder="">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-success">Save Item</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+    </div>
+</div>
+
+<!--order-->
+<section class="order-section" id="order_div">
+    <h1 style="padding-left: 30px;">Orders</h1>
+
+    <div class="grid">
+
+        <!-- card 01 -->
+
+        <div class="card border-info mb-3">
+            <div class="card-header">Invoice Details</div>
+            <div class="card-body card-grid-apply">
+                <div class="mb-3">
+                    <label for="CustomerId" class="form-label">Order Id:</label>
+                    <input type="text" class="form-control" id="CustomerId1" placeholder="D001">
+                </div>
+                <div class="mb-3">
+                    <label for="CustomerId" class="form-label">Date:</label>
+                    <input type="date" class="form-control" id="date1" placeholder="04/10/2024">
+                </div>
+                <div class="mb-3">
+                    <label for="CustomerId" class="form-label">Customer:</label>
+                    <select class="form-select form-select-sm" id="itemID1" aria-label="Small select example">
+                        <option selected="">Customer IDS</option>
+                        <option value="1">C001</option>
+                        <option value="2">C002</option>
+                        <option value="3">C003</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="CustomerId" class="form-label">Customer Id:</label>
+                    <input type="text" class="form-control" id="CustomerId2" placeholder="C001">
+                </div>
+                <div class="mb-3">
+                    <label for="CustomerId" class="form-label">Name:</label>
+                    <input type="text" class="form-control" id="CustomerId3" placeholder="Malik">
+                </div>
+                <div class="mb-3">
+                    <label for="CustomerId" class="form-label">Salary:</label>
+                    <input type="text" class="form-control" id="CustomerId4" placeholder="150,000.00">
+                </div>
+                <div class="mb-3">
+                    <label for="CustomerId" class="form-label">Address</label>
+                    <input type="text" class="form-control" id="CustomerId5" placeholder="Kandy">
+                </div>
+
+            </div>
+        </div>
+
+        <!-- card 02 -->
+        <div class="card border-info mb-3">
+            <div class="card-header">Item Select</div>
+            <div class="card-body card-grid-apply">
+                <div class="mb-3">
+                    <label for="CustomerId" class="form-label">Item:</label>
+                    <select class="form-select form-select-sm" id="itemId2" aria-label="Small select example">
+                        <option selected="">Item Codes</option>
+                        <option value="1">I001</option>
+                        <option value="2">I002</option>
+                        <option value="3">I003</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="CustomerId" class="form-label">Item Code:</label>
+                    <input type="text" class="form-control" id="date" placeholder="I001">
+                </div>
+
+                <div class="mb-3">
+                    <label for="CustomerId" class="form-label">Item Name:</label>
+                    <input type="text" class="form-control" id="CustomerId6" placeholder="saban">
+                </div>
+                <div class="mb-3">
+                    <label for="CustomerId" class="form-label">Item Price:</label>
+                    <input type="text" class="form-control" id="CustomerId7" placeholder="150.00">
+                </div>
+                <div class="mb-3">
+                    <label for="CustomerId" class="form-label">Quantity H:</label>
+                    <input type="text" class="form-control" id="CustomerId8" placeholder="55">
+                </div>
+                <div class="mb-3">
+                    <label for="CustomerId" class="form-label">Oder Quantity</label>
+                    <input type="text" class="form-control" id="CustomerId9" placeholder="2">
+                </div>
+                <button type="button" class="btn btn-danger">Add Item</button>
+
+            </div>
+        </div>
+
+        <!-- car 03 -->
+        <div class="card border-info mb-3">
+
+            <div class="card-body card-grid-apply">
+                <h1>Total: 1050Rs/=</h1>
+                <h1>Sub Total: 945Rs/=</h1>
+                <div class="mb-3">
+                    <label for="CustomerId" class="form-label">Cash</label>
+                    <input type="text" class="form-control" id="CustomerId10" placeholder="5000.00">
+                </div>
+                <div class="mb-3">
+                    <label for="CustomerId" class="form-label">Discount</label>
+                    <input type="number" class="form-control" id="CustomerId11" placeholder="10">
+                </div>
+                <div class="mb-3">
+                    <label for="CustomerId" class="form-label">Balance</label>
+                    <input type="text" class="form-control" id="CustomerId22" placeholder="4055.00">
+                </div>
+                <br>
+
+                <button type="button" class="btn btn-success">Purchase</button>
+
+            </div>
+
+        </div>
+
+
+
+
+    </div>
+
+    <div class="container">
+
+        <div class="row ">
+            <div class="col-12 col-lg-12 mb-3">
+                <div class="card p-5  bg-info bg-gradient bg-opacity-50 shadow">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-custom">
+                            <thead>
+                            <tr>
+                                <th scope="col">Item Code</th>
+                                <th scope="col">Item Name</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Total</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>I001</td>
+                                <td>Saban</td>
+                                <td>150.00</td>
+                                <td>2</td>
+                                <td>300.00</td>
+                            </tr>
+
+
+                            <tr>
+                                <td>I002</td>
+                                <td>Shampoo</td>
+                                <td>350.00</td>
+                                <td>2</td>
+                                <td>700.00</td>
+                            </tr>
+                            <tr>
+                                <td>I003</td>
+                                <td>Shampoo</td>
+                                <td>350.00</td>
+                                <td>2</td>
+                                <td>700.00</td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
 
 
 
@@ -101,6 +574,40 @@
         crossorigin="anonymous"></script>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+<script>
+document.getElementById('customerDiv').style.display = "none";
+document.getElementById('itemDiv').style.display = "none";
+document.getElementById("order_div").style.display = "none";
+
+
+document.getElementById("home_nav").addEventListener('click',function (){
+    document.getElementById("homeDiv").style.display = "block";
+    document.getElementById("customerDiv").style.display = "none";
+    document.getElementById("itemDiv").style.display = "none";
+    document.getElementById("order_div").style.display = "none";
+});
+
+document.getElementById("customer_nav").addEventListener('click',function (){
+    document.getElementById("customerDiv").style.display = "block";
+    document.getElementById("itemDiv").style.display = "none";
+    document.getElementById("order_div").style.display = "none";
+    document.getElementById("homeDiv").style.display = "none";
+})
+
+document.getElementById("item_nav").addEventListener('click',function (){
+    document.getElementById('itemDiv').style.display = "block";
+    document.getElementById("homeDiv").style.display = "none";
+    document.getElementById("customerDiv").style.display ="none";
+    document.getElementById("order_div").style.display = "none";
+});
+
+
+
+
+
+
+</script>
 </body>
 
 </html>

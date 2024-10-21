@@ -681,8 +681,34 @@ document.getElementById("sign-up-nav").addEventListener("click",function (){
 -->
 
 
+<!--Using JQuery Part for spa -->
+
+<script>
+
+    $("#customerDiv").hide();
+    $("#itemDiv").hide();
+    $("#order_div").hide();
+    $("#loginDiv").hide();
 
 
+    $("#home_nav").on("click" ,function (){
+        $("#homeDiv").show();
+        $("#customerDiv").hide();
+        $("#itemDiv").hide();
+        $("#order_div").hide();
+        $("#loginDiv").hide();
+    });
+
+    $("#customer_nav").on("click" ,function (){
+        $("#customerDiv").show();
+        $("#homeDiv").hide();
+        $("#itemDiv").hide();
+        $("#order_div").hide();
+        $("#loginDiv").hide();
+    });
+
+
+</script>
 
 </body>
 

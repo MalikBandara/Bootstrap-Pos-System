@@ -716,18 +716,19 @@ document.getElementById("sign-up-nav").addEventListener("click",function (){
     });
 
     $("#order_nav").on("click",function (){
+        $("#order_div").show();
         $("#itemDiv").hide();
         $("#customerDiv").hide();
         $("#homeDiv").hide();
         $("#loginDiv").hide();
-        $("#order_div").show();
+
     });
 
     $("#sign-up-nav").on("click",function (){
+        $("#loginDiv").show();
         $("#itemDiv").hide();
         $("#customerDiv").hide();
         $("#homeDiv").hide();
-        $("#loginDiv").show();
         $("#order_div").hide();
     });
 

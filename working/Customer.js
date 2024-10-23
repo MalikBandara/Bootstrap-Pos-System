@@ -4,6 +4,7 @@ let customer_arry = [];
 
 // load the customer table
 
+
 const loadCustomerTable = () => {
     // Clear the table body first
     $("#CustomerTableBody").empty();

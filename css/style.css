@@ -2,7 +2,7 @@
     margin-bottom: 100px;
 }
 .home-header{
-    margin-bottom: 250px;
+    margin-bottom: 100px;
 }
 .order_header{
     margin-bottom: 70px;
@@ -48,7 +48,7 @@ body {
 
 /*login css*/
 .login-top-margin{
-    margin-top: 100px;
+    margin-top: 10px;
 }
 
 /*responsive size gap*/

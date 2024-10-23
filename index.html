@@ -59,7 +59,7 @@
 <section class="container " id="homeDiv">
     <div class="row ">
         <div class="col-12 col-lg-4 mb-3">
-            <a href="" style="text-decoration: none;" class="homeCus">
+            <a  style="text-decoration: none;" id="homeCus">
                 <div
                         class="card p-5 text-center justify-content-center align-items-center bg-info bg-gradient bg-opacity-50 shadow">
                     <ion-icon name="people-outline" class="icons"></ion-icon>
@@ -71,7 +71,7 @@
         </div>
         <div class="col-12 col-lg-4 mb-3">
 
-            <a href="" style="text-decoration: none;" class="HomeItem">
+            <a  style="text-decoration: none;" id="HomeItem">
                 <div
                         class="card p-5 text-center justify-content-center align-items-center bg-info bg-gradient bg-opacity-50 shadow">
                     <ion-icon name="pricetags-outline" class="icons"></ion-icon>
@@ -81,7 +81,7 @@
 
         </div>
         <div class="col-12 col-lg-4 mb-3">
-            <a href="" style="text-decoration: none;" class="HomeOrder">
+            <a  style="text-decoration: none;" id="HomeOrder">
                 <div
                         class="card p-5 text-center justify-content-center align-items-center bg-info bg-gradient bg-opacity-50 shadow">
                     <ion-icon name="reorder-four-outline" class="icons"></ion-icon>
@@ -732,7 +732,7 @@ document.getElementById("sign-up-nav").addEventListener("click",function (){
         $("#order_div").hide();
     });
 
-    $(".homeCus").on("click",function (){
+    $("#homeCus").on("click",function (){
         $("#homeDiv").hide();
         $("#itemDiv").hide();
         $("#customerDiv").show();
@@ -740,14 +740,14 @@ document.getElementById("sign-up-nav").addEventListener("click",function (){
         $("#order_div").hide();
     });
 
-    $(".HomeItem").on("click",function (){
+    $("#HomeItem").on("click",function (){
         $("#homeDiv").hide();
         $("#itemDiv").show();
         $("#customerDiv").hide();
         $("#loginDiv").hide();
         $("#order_div").hide();
     });
-    $(".HomeOrder").on("click",function (){
+    $("#HomeOrder").on("click",function (){
         $("#homeDiv").hide();
         $("#itemDiv").hide();
         $("#customerDiv").hide();

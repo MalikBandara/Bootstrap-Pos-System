@@ -113,8 +113,8 @@
                     <textarea class="form-control" id="address" rows="3"></textarea>
                 </div>
                 <div class="mb-3">
-                    <label for="contact" class="form-label">Salary</label>
-                    <input type="text" class="form-control" id="contact" placeholder="">
+                    <label for="salary" class="form-label">Salary</label>
+                    <input type="text" class="form-control" id="salary" placeholder="">
                 </div>
             </div>
 
@@ -136,7 +136,7 @@
                     <div class="card-body col-6">
                         <div class="input-group mb-3">
                             <input type="text" class="form-control" placeholder="Input Customer Name/Nic/Id Here"
-                                   aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                   aria-label="Recipient's username" aria-describedby="basic-addon2" id="searchCustomerIf">
                             <span class="input-group-text search-span" id="basic-addon23">search</span>
                         </div>
 
@@ -145,12 +145,11 @@
                                 <select class="form-select search-span" aria-label="Default select example">
                                     <option selected>Search by</option>
                                     <option value="1">Id</option>
-                                    <option value="2">Name</option>
-                                    <option value="3">Address</option>
+
 
                                 </select>
                             </div>
-                            <button type="button" class="btn btn-success m-2">Search</button>
+                            <button type="button" class="btn btn-success m-2" id="searchCustomer">Search</button>
                         </div>
 
 
@@ -172,40 +171,16 @@
                             <th scope="col">Salary</th>
                         </tr>
                         </thead>
-                        <tbody>
-                        <tr>
-                            <td>C001</td>
-                            <td>Kamal</td>
-                            <td>Kandy</td>
-                            <td>10000.00</td>
-                        </tr>
-                        <tr>
-                            <td>C002</td>
-                            <td>John</td>
-                            <td>Panadura</td>
-                            <td>20000.00</td>
-                        </tr>
-                        <tr>
-                            <td>C003</td>
-                            <td>Sara</td>
-                            <td>Gampola</td>
-                            <td>30000.00</td>
-                        </tr>
-                        <tr>
-                            <td>C004</td>
-                            <td>Mary</td>
-                            <td>Colombo</td>
-                            <td>40000.00</td>
-                        </tr>
+                        <tbody id="CustomerTableBody">
                         </tbody>
                     </table>
                 </div>
 
                 <div class="pt-2 customer-btn">
-                    <button type="button" class="btn btn-success m-2">Save</button>
-                    <button type="button" class="btn btn-primary m-2">Update</button>
-                    <button type="button" class="btn btn-danger m-2">Delete</button>
-                    <button type="button" class="btn btn-secondary">Clear</button>
+                    <button type="button" class="btn btn-success m-2" id="customerSaveButton">Save</button>
+                    <button type="button" class="btn btn-primary m-2" id="CustomerUpdateButton">Update</button>
+                    <button type="button" class="btn btn-danger m-2"  id="DeleteCustomer">Delete</button>
+                    <button type="button" class="btn btn-secondary" id="ClearCustomer">Clear</button>
                     <button type="button" class="btn btn-warning m-2">View all Customers</button>
                 </div>
 
@@ -627,6 +602,8 @@
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
+<script src="working/Customer.js"></script>
+
 
 <!--using JavaScript spa-->
 
@@ -763,6 +740,8 @@ document.getElementById("sign-up-nav").addEventListener("click",function (){
 
 
 </script>
+
+
 
 </body>
 

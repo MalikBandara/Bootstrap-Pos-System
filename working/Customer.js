@@ -77,7 +77,7 @@ $("#customerSaveButton").click(function (){
 });
 
 
-// Search customer
+
 
 function searchCustomer(){
     let SearchFieldValue = $("#searchCustomerIf").val();

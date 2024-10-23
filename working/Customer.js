@@ -4,6 +4,7 @@ let customer_arry = [];
 
 // load the customer table
 
+
 const loadCustomerTable = () => {
     // Clear the table body first
     $("#CustomerTableBody").empty();
@@ -20,6 +21,21 @@ const loadCustomerTable = () => {
                         </tr>`;
             $("#CustomerTableBody").append(data);
         }
+    });
+    $("#CustomerTableBody2").empty();
+
+    // Use map but limit the number of entries displayed to 5
+    customer_arry.map((customer, index) => {
+
+            console.log(customer);
+            let data = `<tr>
+                            <td>${customer.customerId}</td>
+                            <td>${customer.Cusname}</td>
+                            <td>${customer.CusAddress}</td>
+                            <td>${customer.CusSalary}</td>
+                        </tr>`;
+            $("#CustomerTableBody2").append(data);
+
     });
 }
 
@@ -188,5 +204,10 @@ $("#DeleteCustomer").click(function () {
     if (!customerFound) {
         alert("Customer not found!");
     }
+});
+
+
+$("#customerAllTable").click(function (){
+   loadCustomerTable();
 });
 

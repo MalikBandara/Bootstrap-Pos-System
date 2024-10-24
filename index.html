@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link rel="stylesheet" href="./css/style2.css">
+    <link rel="stylesheet" href="./css/order.css">
 
 
 </head>
@@ -220,7 +221,7 @@
 
                 <div class="row">
 
-                    <div class="card mb-4 col-6 d-flex gap-5" style="height: 400px">
+                    <div class="card mb-4 col-6 d-flex gap-5" >
                         <div class="card-header bg-opacity-25 bg-info ">
                             Search Item
                         </div>
@@ -230,7 +231,7 @@
                                 <div class="d-flex mb-3"> <!-- Added bottom margin for separation -->
                                     <div class="input-group flex-grow-1">
                                         <!-- Use flex-grow to take available space -->
-                                        <input type="text" class="form-control"
+                                        <input id="ItemField" type="text" class="form-control"
                                                placeholder="Input Item Name/Code Here"
                                                aria-label="Recipient's username" aria-describedby="basic-addon2">
                                         <span class="input-group-text search-span" id="basic-addon2">Search</span>
@@ -245,22 +246,21 @@
                                         <select class="form-select search-span" aria-label="Default select example">
                                             <option selected>Search by</option>
                                             <option value="1">Code</option>
-                                            <option value="2">Name</option>
+
 
                                         </select>
                                     </div>
-                                    <button type="button" class="btn btn-success m-2">Search</button>
+                                    <button id="ItemSearch" type="button" class="btn btn-success m-2">Search</button>
                                 </div>
                             </div>
                         </div>
 
                         <div class="pt-2 button-update-clear-delete">
 
-                            <button type="button" class="btn btn-primary m-2">Update</button>
-                            <button type="button" class="btn btn-danger m-2">Delete</button>
-                            <button id="ItemClear" type="button" class="btn btn-secondary">Clear</button>
-                            <button  type="button" class="btn btn-success m-2" data-bs-toggle="modal"
-                                     data-bs-target="#exampleModal">New Item</button>
+                            <button id="UpdateItems" type="button" class="btn btn-primary m-2">Update</button>
+                            <button id="DeleteItem"  type="button" class="btn btn-danger m-2">Delete</button>
+                            <button id="ItemClear" type="button" class="btn btn-secondary m-2">Clear</button>
+                            <button id="AddNewItem"  type="button" class="btn btn-success m-2">New Item</button>
                             <button type="button" class="btn btn-warning m-2">View All Item</button>
 
                         </div>
@@ -333,24 +333,7 @@
         <div class="container my-4">
 
 
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                 aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header bg-primary text-light">
-                            <h5 class="modal-title " id="exampleModalLabel">New Item</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                        </div>
 
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button id="AddNewItem" type="button" class="btn btn-success">Save Item</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
 
 

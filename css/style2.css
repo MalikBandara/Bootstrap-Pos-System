@@ -31,13 +31,14 @@
     }
 
     .btn {
-        width: 20%;
+        width: 30%;
         margin-bottom: 10px;
     }
     .button-update-clear-delete {
         display: flex;
-        flex-direction: column;
+        justify-content: center;
         align-items: center;
+        flex-direction: column;
 
         /* Adjust card padding and margins */
         .card {
@@ -75,91 +76,97 @@
             font-size: 14px;
         }
     }
-    @media (max-width: 425px) {
-        /* Adjust the header and navigation for small screens */
 
-        .search-span{
-            font-size: 10px;
-        }
-        .btn {
-            width: 20%;
-            margin-bottom: 10px;
-        }
+}
+@media (max-width: 425px)   {
+    /* Adjust the header and navigation for small screens */
+
+    .search-span{
+        font-size: 10px;
+    }
+    .btn {
+        width: 100%;
+        margin-bottom: 10px;
+        font-size: 25px;
+    }
+
+    .gap-5{
+        gap: 0;
+    }
 
 
 
 
+    /* Stack elements vertically */
+    .row {
+        flex-direction: column;
+    }
 
-        /* Stack elements vertically */
-        .row {
-            flex-direction: column;
-        }
+    .col-6,
+    .col-lg-12 {
+        width: 100%;
+    }
 
-        .col-6,
-        .col-lg-12 {
-            width: 100%;
-        }
+    /* Buttons should take full width */
+    .btn {
+        width: 20%;
+        margin-bottom: 8px;
+    }
 
-        /* Buttons should take full width */
-        .btn {
-            width: 20%;
-            margin-bottom: 8px;
-        }
+    /* Adjust the card padding and reduce spacing */
+    .card {
+        padding: 8px;
+        margin-bottom: 15px;
 
-        /* Adjust the card padding and reduce spacing */
-        .card {
-            padding: 8px;
-            margin-bottom: 15px;
-        }
+    }
 
-        .modal-dialog {
-            max-width: 100%;
-            margin: 0;
-        }
+    .modal-dialog {
+        max-width: 100%;
+        margin: 0;
+    }
 
-        /* Adjust input fields and button sizes for small screens */
-        .input-group .form-control {
-            width: 100%;
-            font-size: 14px;
-        }
+    /* Adjust input fields and button sizes for small screens */
+    .input-group .form-control {
+        width: 100%;
+        font-size: 14px;
+    }
 
-        .btn {
-            font-size: 12px;
-        }
+    .btn {
+        font-size: 12px;
+    }
 
-        /* Table should be scrollable and font size reduced */
-        .table-custom {
-            font-size: 12px;
-        }
+    /* Table should be scrollable and font size reduced */
+    .table-custom {
+        font-size: 12px;
+    }
 
-        /* Responsive text sizes */
-        h1 {
-            font-size: 18px;
-        }
+    /* Responsive text sizes */
+    h1 {
+        font-size: 18px;
+    }
 
-        h5 {
-            font-size: 16px;
-        }
+    h5 {
+        font-size: 16px;
+    }
 
-        label,
-        .form-label {
-            font-size: 12px;
-        }
+    label,
+    .form-label {
+        font-size: 12px;
+    }
 
-        /* Smaller modal body padding */
-        .modal-body {
-            padding: 15px;
-        }
+    /* Smaller modal body padding */
+    .modal-body {
+        padding: 15px;
+    }
 
-        /* Adjust the table */
-        .table-responsive {
-            overflow-x: auto;
-        }
+    /* Adjust the table */
+    .table-responsive {
+        overflow-x: auto;
+    }
 
-        /* Reduce padding around buttons */
-        .btn {
-            padding: 6px 8px;
-        }
+    /* Reduce padding around buttons */
+    .btn {
+        padding: 6px 8px;
     }
 }
 
@@ -353,8 +360,8 @@
     }
 
     .btn {
-        font-size: 12px;
-        width: 20%;
+        font-size: 15px;
+        width: 50%;
         margin-bottom: 8px;
     }
 
@@ -381,8 +388,8 @@
     }
 
     .btn {
-        font-size: 10px;
-        width: 100%;
+        font-size: 8px;
+        width: 80%;
         margin-bottom: 6px;
     }
 

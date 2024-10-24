@@ -41,14 +41,31 @@ const loadItemTable  = ()=>{
     $("#ItemTableBody").empty();
 
     // 7th step
+
+    ItemArray.map((Item,Index)=>{
+        if (Index < 5 ) {
+            console.log(Item);
+            // 8th step
+            let data = `<tr><td>${Item.ItemId}</td><td>${Item.ItemName}</td><td>${Item.ItemPrice}</td><td>${Item.QuantityItem}</td></tr>`
+
+            // 9th step
+            $("#ItemTableBody").append(data);
+        }
+
+    });
+
+    $("#ItemTableBody2").empty();
+
+    // 7th step
+
     ItemArray.map((Item,Index)=>{
 
-        console.log(Item);
-        // 8th step
-        let data = `<tr><td>${Item.ItemId}</td><td>${Item.ItemName}</td><td>${Item.ItemPrice}</td><td>${Item.QuantityItem}</td></tr>`
+            console.log(Item);
+            // 8th step
+            let data = `<tr><td>${Item.ItemId}</td><td>${Item.ItemName}</td><td>${Item.ItemPrice}</td><td>${Item.QuantityItem}</td></tr>`
 
-        // 9th step
-        $("#ItemTableBody").append(data);
+            // 9th step
+            $("#ItemTableBody2").append(data);
 
 
     });

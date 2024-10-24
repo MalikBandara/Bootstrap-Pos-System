@@ -216,17 +216,17 @@
 
 
 
-            <div class="card p-5 bg-info bg-gradient bg-opacity-50 shadow">
+            <div class="card p-5 bg-primary-subtle shadow">
 
                 <div class="row">
 
-                    <div class="card mb-4 col-6">
+                    <div class="card mb-4 col-6 d-flex gap-5" style="height: 400px">
                         <div class="card-header bg-opacity-25 bg-info ">
                             Search Item
                         </div>
                         <!-- card new  -->
-                        <div class="col-9 d-flex">
-                            <div class="card-body col-6">
+                        <div class="col-9 d-flex ">
+                            <div class="card-body col-6" >
                                 <div class="d-flex mb-3"> <!-- Added bottom margin for separation -->
                                     <div class="input-group flex-grow-1">
                                         <!-- Use flex-grow to take available space -->
@@ -254,18 +254,49 @@
                             </div>
                         </div>
 
+                        <div class="pt-2 button-update-clear-delete">
+
+                            <button type="button" class="btn btn-primary m-2">Update</button>
+                            <button type="button" class="btn btn-danger m-2">Delete</button>
+                            <button id="ItemClear" type="button" class="btn btn-secondary">Clear</button>
+                            <button  type="button" class="btn btn-success m-2" data-bs-toggle="modal"
+                                     data-bs-target="#exampleModal">New Item</button>
+                            <button type="button" class="btn btn-warning m-2">View All Item</button>
+
+                        </div>
+
 
                         <!-- card end -->
                     </div>
 
 
 
-                    <div class="col-6 col-lg-4 mb-3  ">
+                    <div class="col-6 col-lg-6 mb-3  ">
 
 
-                        <button type="button" class="btn btn-success m-2" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal">New Item</button>
-                        <button type="button" class="btn btn-warning m-2">View All Item</button>
+                        <div class="modal-body ">
+                            <div class="col-12 col-lg-12 mb-3   ">
+                                <div class="card p-5   bg-gradient bg-opacity-10 shadow bg-info ">
+                                    <div class="mb-3">
+                                        <label for="ItemId" class="form-label">Item Code:</label>
+                                        <input type="text" class="form-control" id="ItemId" placeholder="">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="ItemName" class="form-label">Item Name:</label>
+                                        <input type="text" class="form-control" id="ItemName" placeholder="">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="price" class="form-label">Item Price:</label>
+                                        <input type="text" class="form-control" id="price" placeholder="">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="Qty" class="form-label">Quantity:</label>
+                                        <input type="text" class="form-control" id="Qty" placeholder="">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
 
 
 
@@ -287,42 +318,14 @@
                             <th scope="col">Quantity</th>
                         </tr>
                         </thead>
-                        <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Saban</td>
-                            <td>150.00</td>
-                            <td>55</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Shampoo</td>
-                            <td>350.00</td>
-                            <td>100</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Bucket</td>
-                            <td>500.00</td>
-                            <td>25</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Conditioner</td>
-                            <td>750.00</td>
-                            <td>100</td>
-                        </tr>
+                        <tbody id="ItemTableBody">
+
+
                         </tbody>
                     </table>
                 </div>
 
-                <div class="pt-2 button-update-clear-delete">
 
-                    <button type="button" class="btn btn-primary m-2">Update</button>
-                    <button type="button" class="btn btn-danger m-2">Delete</button>
-                    <button type="button" class="btn btn-secondary">Clear</button>
-
-                </div>
 
             </div>
         </div>
@@ -340,32 +343,10 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                         </div>
-                        <div class="modal-body">
-                            <div class="col-12 col-lg-12 mb-3">
-                                <div class="card p-5   bg-gradient bg-opacity-50 shadow">
-                                    <div class="mb-3">
-                                        <label for="ItemId" class="form-label">Item Code:</label>
-                                        <input type="text" class="form-control" id="ItemId" placeholder="">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="Description" class="form-label">Item Name:</label>
-                                        <input type="text" class="form-control" id="Description" placeholder="">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="price" class="form-label">Item Price:</label>
-                                        <input type="text" class="form-control" id="price" placeholder="">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="Qty" class="form-label">Quantity:</label>
-                                        <input type="text" class="form-control" id="Qty" placeholder="">
-                                    </div>
-                                </div>
 
-                            </div>
-                        </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-success">Save Item</button>
+                            <button id="AddNewItem" type="button" class="btn btn-success">Save Item</button>
                         </div>
                     </div>
                 </div>
@@ -654,6 +635,7 @@
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
 <script src="working/Customer.js"></script>
+<script src="working/item.js"></script>
 
 
 <!--using JavaScript spa-->

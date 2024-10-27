@@ -332,12 +332,12 @@
             <div class="card-header">Invoice Details</div>
             <div class="card-body card-grid-apply">
                 <div class="mb-3">
-                    <label for="CustomerId" class="form-label">Order Id:</label>
-                    <input type="text" class="form-control" id="CustomerId1" placeholder="">
+                    <label for="orderid" class="form-label">Order Id:</label>
+                    <input type="text" class="form-control" id="orderid" placeholder="">
                 </div>
                 <div class="mb-3">
-                    <label for="CustomerId" class="form-label">Date:</label>
-                    <input type="date" class="form-control" id="date1" placeholder="">
+                    <label for="date" class="form-label">Date:</label>
+                    <input type="date" class="form-control" id="date" placeholder="">
                 </div>
                 <div class="mb-3">
                     <label for="CustomerId" class="form-label">Customer:</label>
@@ -379,35 +379,35 @@
                     <label for="CustomerId" class="form-label">Item:</label>
                     <div class="input-group flex-grow-1">
                         <!-- Use flex-grow to take available space -->
-                        <input id="ItemField24" type="text" class="form-control"
+                        <input id="iteCode" type="text" class="form-control"
                                placeholder="Input item code"
                                aria-label="Recipient's username" aria-describedby="basic-addon2">
                         <span class="input-group-text search-span" id="basic-addon6">Search</span>
                     </div>
-                    <button type="button" class="btn btn-primary mt-3 ">search</button>
+                    <button id="itemSearchOrder" type="button" class="btn btn-primary mt-3 ">search</button>
                 </div>
                 <div class="mb-3">
-                    <label for="CustomerId" class="form-label">Item Code:</label>
-                    <input type="text" class="form-control" id="date" placeholder="">
+                    <label for="iteCode" class="form-label">Item Code:</label>
+                    <input type="text" class="form-control" id="iteCode2" placeholder="">
                 </div>
 
                 <div class="mb-3">
-                    <label for="CustomerId" class="form-label">Item Name:</label>
-                    <input type="text" class="form-control" id="CustomerId6" placeholder="">
+                    <label for="Iname" class="form-label">Item Name:</label>
+                    <input type="text" class="form-control" id="Iname" placeholder="">
                 </div>
                 <div class="mb-3">
-                    <label for="CustomerId" class="form-label">Item Price:</label>
-                    <input type="text" class="form-control" id="CustomerId7" placeholder="">
+                    <label for="Iprice" class="form-label">Item Price:</label>
+                    <input type="text" class="form-control" id="Iprice" placeholder="">
                 </div>
                 <div class="mb-3">
-                    <label for="CustomerId" class="form-label">Quantity H:</label>
-                    <input type="text" class="form-control" id="CustomerId8" placeholder="">
+                    <label for="qtyhand" class="form-label">Quantity Hand in :</label>
+                    <input type="text" class="form-control" id="qtyhand" placeholder="">
                 </div>
                 <div class="mb-3">
-                    <label for="CustomerId" class="form-label">Oder Quantity</label>
-                    <input type="text" class="form-control" id="CustomerId9" placeholder="">
+                    <label for="odQu" class="form-label">Oder Quantity</label>
+                    <input type="text" class="form-control" id="odQu" placeholder="">
                 </div>
-                <button type="button" class="btn btn-warning">Add Item</button>
+                <button id="addItem" type="button" class="btn btn-warning">Add Item</button>
                 <button type="button" class="btn btn-danger">Remove cart</button>
 
             </div>

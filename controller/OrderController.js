@@ -63,6 +63,7 @@ $("#addItem").click(function (){
 
     cart.push(order);
     console.log(cart)
+    $("#totalDisplay").text(`Total: ${total}` + " Rs/=");
     loadCart();
 
 });
@@ -78,4 +79,20 @@ const loadCart = () => {
         }
     });
 };
+
+$("#removecart").click(function () {
+    let orderid = $("#orderid").val(); // Ensure it's the correct ID format
+    console.log("Attempting to remove order ID:", orderid);
+
+    // Find the index of the item with the specified order ID
+    let indexToRemove = cart.findIndex((item) => item.orderid === orderid);
+
+    if (indexToRemove !== -1) {
+        cart.splice(indexToRemove, 1);
+        console.log("Removed item with order ID:", orderid);
+        loadCart();
+    } else {
+        alert("Order ID not found");
+    }
+});
 

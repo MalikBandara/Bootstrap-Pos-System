@@ -56,16 +56,26 @@ $("#addItem").click(function (){
     let ItemPrice = $("#Iprice").val();
     let QuantityH = $("#qtyhand").val();
     let OdQu = $("#odQu").val();
-    let total = ItemPrice * QuantityH;
+    let total = ItemPrice * OdQu;
 
 
     let order = new Order(orderid, date, cusID,ItemCode,ItemName,ItemPrice,QuantityH,OdQu,total);
 
     cart.push(order);
     console.log(cart)
-
-
-
-
+    loadCart();
 
 });
+
+
+const loadCart = () => {
+    $("#cart").empty();
+
+    cart.map((Cart, index) => {
+        if (index < 5) {
+            let data = `<tr><td>${Cart.orderid}</td><td>${Cart.cusid}</td><td>${Cart.iname}</td><td>${Cart.iprice}</td><td>${Cart.ordedqty}</td><td>${Cart.total}</td></tr>`;
+            $("#cart").append(data);
+        }
+    });
+};
+

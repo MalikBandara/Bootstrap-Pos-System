@@ -333,36 +333,39 @@
             <div class="card-body card-grid-apply">
                 <div class="mb-3">
                     <label for="CustomerId" class="form-label">Order Id:</label>
-                    <input type="text" class="form-control" id="CustomerId1" placeholder="D001">
+                    <input type="text" class="form-control" id="CustomerId1" placeholder="">
                 </div>
                 <div class="mb-3">
                     <label for="CustomerId" class="form-label">Date:</label>
-                    <input type="date" class="form-control" id="date1" placeholder="04/10/2024">
+                    <input type="date" class="form-control" id="date1" placeholder="">
                 </div>
                 <div class="mb-3">
                     <label for="CustomerId" class="form-label">Customer:</label>
-                    <select class="form-select form-select-sm" id="itemID1" aria-label="Small select example">
-                        <option selected="">Customer IDS</option>
-                        <option value="1">C001</option>
-                        <option value="2">C002</option>
-                        <option value="3">C003</option>
-                    </select>
+                    <div class="input-group flex-grow-1">
+                        <!-- Use flex-grow to take available space -->
+                        <input id="ItemField2" type="text" class="form-control"
+                               placeholder="Input customer id"
+                               aria-label="Recipient's username" aria-describedby="basic-addon2">
+                        <span class="input-group-text search-span" id="basic-addon4">Search</span>
+                    </div>
+                    <button type="button" class="btn btn-primary mt-3 ">Purchase</button>
+
                 </div>
                 <div class="mb-3">
                     <label for="CustomerId" class="form-label">Customer Id:</label>
-                    <input type="text" class="form-control" id="CustomerId2" placeholder="C001">
+                    <input type="text" class="form-control" id="CustomerId2" placeholder="">
                 </div>
                 <div class="mb-3">
                     <label for="CustomerId" class="form-label">Name:</label>
-                    <input type="text" class="form-control" id="CustomerId3" placeholder="Malik">
+                    <input type="text" class="form-control" id="CustomerId3" placeholder="">
                 </div>
                 <div class="mb-3">
                     <label for="CustomerId" class="form-label">Salary:</label>
-                    <input type="text" class="form-control" id="CustomerId4" placeholder="150,000.00">
+                    <input type="text" class="form-control" id="CustomerId4" placeholder="">
                 </div>
                 <div class="mb-3">
                     <label for="CustomerId" class="form-label">Address</label>
-                    <input type="text" class="form-control" id="CustomerId5" placeholder="Kandy">
+                    <input type="text" class="form-control" id="CustomerId5" placeholder="">
                 </div>
 
             </div>
@@ -374,35 +377,38 @@
             <div class="card-body card-grid-apply">
                 <div class="mb-3">
                     <label for="CustomerId" class="form-label">Item:</label>
-                    <select class="form-select form-select-sm" id="itemId2" aria-label="Small select example">
-                        <option selected="">Item Codes</option>
-                        <option value="1">I001</option>
-                        <option value="2">I002</option>
-                        <option value="3">I003</option>
-                    </select>
+                    <div class="input-group flex-grow-1">
+                        <!-- Use flex-grow to take available space -->
+                        <input id="ItemField24" type="text" class="form-control"
+                               placeholder="Input item code"
+                               aria-label="Recipient's username" aria-describedby="basic-addon2">
+                        <span class="input-group-text search-span" id="basic-addon6">Search</span>
+                    </div>
+                    <button type="button" class="btn btn-primary mt-3 ">Purchase</button>
                 </div>
                 <div class="mb-3">
                     <label for="CustomerId" class="form-label">Item Code:</label>
-                    <input type="text" class="form-control" id="date" placeholder="I001">
+                    <input type="text" class="form-control" id="date" placeholder="">
                 </div>
 
                 <div class="mb-3">
                     <label for="CustomerId" class="form-label">Item Name:</label>
-                    <input type="text" class="form-control" id="CustomerId6" placeholder="saban">
+                    <input type="text" class="form-control" id="CustomerId6" placeholder="">
                 </div>
                 <div class="mb-3">
                     <label for="CustomerId" class="form-label">Item Price:</label>
-                    <input type="text" class="form-control" id="CustomerId7" placeholder="150.00">
+                    <input type="text" class="form-control" id="CustomerId7" placeholder="">
                 </div>
                 <div class="mb-3">
                     <label for="CustomerId" class="form-label">Quantity H:</label>
-                    <input type="text" class="form-control" id="CustomerId8" placeholder="55">
+                    <input type="text" class="form-control" id="CustomerId8" placeholder="">
                 </div>
                 <div class="mb-3">
                     <label for="CustomerId" class="form-label">Oder Quantity</label>
-                    <input type="text" class="form-control" id="CustomerId9" placeholder="2">
+                    <input type="text" class="form-control" id="CustomerId9" placeholder="">
                 </div>
-                <button type="button" class="btn btn-danger">Add Item</button>
+                <button type="button" class="btn btn-warning">Add Item</button>
+                <button type="button" class="btn btn-danger">Remove cart</button>
 
             </div>
         </div>
@@ -411,19 +417,19 @@
         <div class="card border-info mb-3">
 
             <div class="card-body card-grid-apply">
-                <h1>Total: 1050Rs/=</h1>
-                <h1>Sub Total: 945Rs/=</h1>
+                <h1>Total:</h1>
+                <h1>Sub Total: </h1>
                 <div class="mb-3">
                     <label for="CustomerId" class="form-label">Cash</label>
-                    <input type="text" class="form-control" id="CustomerId10" placeholder="5000.00">
+                    <input type="text" class="form-control" id="CustomerId10" placeholder="">
                 </div>
                 <div class="mb-3">
                     <label for="CustomerId" class="form-label">Discount</label>
-                    <input type="number" class="form-control" id="CustomerId11" placeholder="10">
+                    <input type="number" class="form-control" id="CustomerId11" placeholder="">
                 </div>
                 <div class="mb-3">
                     <label for="CustomerId" class="form-label">Balance</label>
-                    <input type="text" class="form-control" id="CustomerId22" placeholder="4055.00">
+                    <input type="text" class="form-control" id="CustomerId22" placeholder="">
                 </div>
                 <br>
 
@@ -643,6 +649,7 @@
 <!--<script src="working/item.js"></script>-->
 <script type="module" src="./controller/CustomerController.js"></script>
 <script type="module" src="./controller/ItemController.js"></script>
+<script type="module" src="./controller/OrderController.js"></script>
 
 
 

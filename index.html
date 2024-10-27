@@ -343,12 +343,12 @@
                     <label for="CustomerId" class="form-label">Customer:</label>
                     <div class="input-group flex-grow-1">
                         <!-- Use flex-grow to take available space -->
-                        <input id="ItemField2" type="text" class="form-control"
+                        <input id="customerSearchId" type="text" class="form-control"
                                placeholder="Input customer id"
                                aria-label="Recipient's username" aria-describedby="basic-addon2">
                         <span class="input-group-text search-span" id="basic-addon4">Search</span>
                     </div>
-                    <button type="button" class="btn btn-primary mt-3 ">Purchase</button>
+                    <button id="customerSearch" type="button" class="btn btn-primary mt-3 ">search</button>
 
                 </div>
                 <div class="mb-3">
@@ -357,15 +357,15 @@
                 </div>
                 <div class="mb-3">
                     <label for="CustomerId" class="form-label">Name:</label>
-                    <input type="text" class="form-control" id="CustomerId3" placeholder="">
+                    <input type="text" class="form-control" id="cuname" placeholder="">
                 </div>
                 <div class="mb-3">
                     <label for="CustomerId" class="form-label">Salary:</label>
-                    <input type="text" class="form-control" id="CustomerId4" placeholder="">
+                    <input type="text" class="form-control" id="cusalary" placeholder="">
                 </div>
                 <div class="mb-3">
                     <label for="CustomerId" class="form-label">Address</label>
-                    <input type="text" class="form-control" id="CustomerId5" placeholder="">
+                    <input type="text" class="form-control" id="cuaddress" placeholder="">
                 </div>
 
             </div>
@@ -384,7 +384,7 @@
                                aria-label="Recipient's username" aria-describedby="basic-addon2">
                         <span class="input-group-text search-span" id="basic-addon6">Search</span>
                     </div>
-                    <button type="button" class="btn btn-primary mt-3 ">Purchase</button>
+                    <button type="button" class="btn btn-primary mt-3 ">search</button>
                 </div>
                 <div class="mb-3">
                     <label for="CustomerId" class="form-label">Item Code:</label>
@@ -453,37 +453,16 @@
                         <table class="table table-bordered table-custom">
                             <thead>
                             <tr>
-                                <th scope="col">Item Code</th>
-                                <th scope="col">Item Name</th>
+                                <th scope="col">Order id</th>
+                                <th scope="col">customer id</th>
+                                <th scope="col">item name</th>
                                 <th scope="col">Price</th>
                                 <th scope="col">Quantity</th>
                                 <th scope="col">Total</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>I001</td>
-                                <td>Saban</td>
-                                <td>150.00</td>
-                                <td>2</td>
-                                <td>300.00</td>
-                            </tr>
 
-
-                            <tr>
-                                <td>I002</td>
-                                <td>Shampoo</td>
-                                <td>350.00</td>
-                                <td>2</td>
-                                <td>700.00</td>
-                            </tr>
-                            <tr>
-                                <td>I003</td>
-                                <td>Shampoo</td>
-                                <td>350.00</td>
-                                <td>2</td>
-                                <td>700.00</td>
-                            </tr>
 
                             </tbody>
                         </table>

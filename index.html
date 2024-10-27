@@ -99,69 +99,50 @@
 <div class="container" id="customerDiv">
 
 
-    <h1 class="mb-5">Manage Customer</h1>
-    <div class="row ">
-        <div class="col-12 col-lg-4 mb-3">
-            <div class="card p-5  bg-info bg-gradient bg-opacity-50 shadow">
-                <div class="mb-3">
-                    <label for="CustomerId" class="form-label">Customer Id</label>
-                    <input type="text" class="form-control" id="CustomerId" placeholder="">
-                </div>
-                <div class="mb-3">
-                    <label for="name" class="form-label">Full Name</label>
-                    <input type="text" class="form-control" id="name" placeholder="">
-                </div>
-                <div class="mb-3">
-                    <label for="address" class="form-label">Address</label>
-                    <textarea class="form-control" id="address" rows="3"></textarea>
-                </div>
-                <div class="mb-3">
-                    <label for="salary" class="form-label">Salary</label>
-                    <input type="text" class="form-control" id="salary" placeholder="">
+    <h1 class="mb-5 d-flex justify-content-center">Manage Customer</h1>
+    <div class="row d-flex justify-content-center ">
+        <div class="col-12 col-lg-8 mb-5">
+            <div class="card p-5 bg-info bg-gradient bg-opacity-50 shadow">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="CustomerId" class="form-label">Customer Id</label>
+                        <input type="text" class="form-control" id="CustomerId" placeholder="">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="name" class="form-label">Full Name</label>
+                        <input type="text" class="form-control" id="name" placeholder="">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="address" class="form-label">Address</label>
+                        <textarea class="form-control" id="address" rows="3"></textarea>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="salary" class="form-label">Salary</label>
+                        <input type="text" class="form-control" id="salary" placeholder="">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="mobile" class="form-label">Mobile</label>
+                        <input type="tel" class="form-control" id="mobile" placeholder="">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="">
+                    </div>
                 </div>
             </div>
-
         </div>
 
 
 
 
 
-        <div class="col-12 col-lg-8 mb-1">
+
+        <div class="col-12 col-lg-12 mb-1">
 
 
             <div class="card p-5 bg-info bg-gradient bg-opacity-50 shadow">
 
-                <div class="card mb-4">
-                    <div class="card-header bg-opacity-25 bg-info ">
-                        Search Customer
-                    </div>
-                    <div class="card-body col-6">
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Input Customer Name/Nic/Id Here"
-                                   aria-label="Recipient's username" aria-describedby="basic-addon2" id="searchCustomerIf">
-                            <span class="input-group-text search-span" id="basic-addon23">search</span>
-                        </div>
 
-                        <div class="col-12 d-flex justify-content-lg-start align-items-center">
-                            <div class="col-5 ">
-                                <select class="form-select search-span" aria-label="Default select example">
-                                    <option selected>Search by</option>
-                                    <option value="1">Id</option>
-
-
-                                </select>
-                            </div>
-                            <button type="button" class="btn btn-success m-2" id="searchCustomer">Search</button>
-                        </div>
-
-
-
-
-                    </div>
-
-
-                </div>
 
 
                 <div class="table-responsive">
@@ -172,6 +153,8 @@
                             <th scope="col">Name</th>
                             <th scope="col">Address</th>
                             <th scope="col">Salary</th>
+                            <th scope="col">Mobile</th>
+                            <th scope="col">Email</th>
                         </tr>
                         </thead>
                         <tbody id="CustomerTableBody">
@@ -208,21 +191,14 @@
     <h1 class="mb-4">Manage Items</h1>
     <div class="row">
 
-
-
-
-
         <div class="col-12 col-lg-12 mb-1">
-
-
-
 
             <div class="card p-5 bg-primary-subtle shadow">
 
                 <div class="row">
 
-                    <div class="card mb-4 col-6 d-flex gap-5" >
-                        <div class="card-header bg-opacity-25 bg-info ">
+                    <div class="card mb-4 col-6 d-flex gap-5">
+                        <div class="card-header bg-opacity-25 bg-info">
                             Search Item
                         </div>
                         <!-- card new  -->
@@ -586,6 +562,8 @@
                                 <th scope="col">Name</th>
                                 <th scope="col">Address</th>
                                 <th scope="col">Salary</th>
+                                <th scope="col">Mobile</th>
+                                <th scope="col">Email</th>
                             </tr>
                             </thead>
                             <tbody id="CustomerTableBody2" class="tik">
@@ -661,8 +639,13 @@
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
-<script src="working/Customer.js"></script>
-<script src="working/item.js"></script>
+<!--<script src="working/Customer.js"></script>-->
+<!--<script src="working/item.js"></script>-->
+<script type="module" src="./controller/CustomerController.js"></script>
+<script type="module" src="./controller/ItemController.js"></script>
+
+
+
 
 
 <!--using JavaScript spa-->

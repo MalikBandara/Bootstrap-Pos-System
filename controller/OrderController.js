@@ -50,25 +50,89 @@ $("#itemSearchOrder").click(function () {
 });
 
 let total = 0  ;
-$("#addItem").click(function (){
+// $("#addItem").click(function (){
+//     let orderid = $("#orderid").val();
+//     let date = $("#date").val();
+//     let cusID = $("#CustomerId2").val();
+//     let ItemCode = $("#iteCode2").val();
+//     let ItemName = $("#Iname").val();
+//     let ItemPrice = $("#Iprice").val();
+//     let QuantityH = $("#qtyhand").val();
+//     let OdQu = $("#odQu").val();
+//     total = ItemPrice * OdQu;
+//
+//
+//
+//
+//
+//     let order = new Order(orderid, date, cusID,ItemCode,ItemName,ItemPrice,QuantityH,OdQu,total);
+//
+//     cart.push(order);
+//     for (let i = 0 ; i < ItemArray.length ; i++){
+//         if (ItemArray[i].id === ItemCode){
+//             console.log(ItemPrice);
+//             let update = QuantityH -OdQu;
+//             ItemArray[i].qtyhand = update;
+//         }
+//     }
+//     console.log(cart)
+//     $("#totalDisplay").text(`Total: ${total}` + " Rs/=");
+//     loadCart();
+//
+// });
+
+
+const LoadItemTable = () => {
+
+    $("#ItemTableBody").empty();
+
+    ItemArray.map((Item,index)=>{
+        if (index<5){
+
+            let data = `<tr><td>${Item.id}</td><td>${Item.iName}</td><td>${Item.Price}</td><td>${Item.Quantity}</td></tr>`;
+
+            $("#ItemTableBody").append(data);
+        }
+    });
+
+
+}
+$("#addItem").click(function () {
     let orderid = $("#orderid").val();
     let date = $("#date").val();
     let cusID = $("#CustomerId2").val();
-    let ItemCode = $("#iteCode2").val();
+    let ItemCode = parseInt($("#iteCode2").val());
     let ItemName = $("#Iname").val();
-    let ItemPrice = $("#Iprice").val();
-    let QuantityH = $("#qtyhand").val();
-    let OdQu = $("#odQu").val();
-    total = ItemPrice * OdQu;
+    let ItemPrice = parseFloat($("#Iprice").val()); // Parse as float
+    let QuantityH = parseInt($("#qtyhand").val()); // Parse as int
+    let OdQu = parseInt($("#odQu").val()); // Parse as int
+    let total = ItemPrice * OdQu; // Calculate total
 
+    // Create a new order
+    let order = new Order(orderid, date, cusID, ItemCode, ItemName, ItemPrice, QuantityH, OdQu, total);
 
-    let order = new Order(orderid, date, cusID,ItemCode,ItemName,ItemPrice,QuantityH,OdQu,total);
-
+    // Add order to cart
     cart.push(order);
-    console.log(cart)
-    $("#totalDisplay").text(`Total: ${total}` + " Rs/=");
-    loadCart();
 
+    // Update ItemArray
+    for (let i = 0; i < ItemArray.length; i++) {
+        if (ItemArray[i].id === ItemCode) {
+            console.log("hi" + ItemCode);
+            let update = ItemArray[i].Quantity - OdQu; // Update available quantity
+            if (update >= 0) { // Check if there is enough quantity available
+                ItemArray[i].Quantity = update;
+                console.log(ItemArray);
+                LoadItemTable();
+            } else {
+                alert("Not enough quantity available."); // Alert if not enough stock
+            }
+            break; // Exit loop once item is found and updated
+        }
+    }
+
+    console.log(cart);
+    $("#totalDisplay").text(`Total: ${total} Rs/=`); // Display total
+    loadCart(); // Refresh cart display
 });
 
 

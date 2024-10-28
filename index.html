@@ -18,7 +18,7 @@
 
 <body>
 
-<header class="header home-header">
+<header id="header" class="header home-header">
     <nav class="navbar navbar-expand-lg bg-primary ">
         <div class="container">
             <a class="navbar-brand text-light" href="#">ANONYMUS</a>
@@ -45,11 +45,7 @@
                         <a class="nav-link text-light"  id="orderHistroy">Order History</a>
                     </li>
                     <li class="nav-item ms-4 ">
-                        <a  class="btn btn-light no" role="button" id="sign-up-nav">Sign Up</a>
-
-                    </li>
-                    <li class="nav-item ms-4 ">
-                        <button type="button" class="btn btn-light no" >Log out</button>
+                        <button id="logoutButton" type="button" class="btn btn-light no" >Log out</button>
                     </li>
 
 
@@ -479,53 +475,33 @@
 
 <!--Login-->
 <div class="login-div" id="loginDiv">
-    <div class="row d-flex justify-content-center align-items-center ">
+    <div class="row d-flex justify-content-center align-items-center margine ">
         <div class="col-12 col-lg-4 mb-3">
-            <div class="card p-5  bg-info bg-gradient bg-opacity-50 shadow">
-
-
-                <form class="" >
+            <div class="card p-5 bg-info bg-gradient bg-opacity-50 shadow">
+                <form id="loginForm"> <!-- Add an ID to the form for JavaScript targeting -->
                     <h1>Login Form</h1>
                     <div class="mb-3 mt-5 ">
                         <label for="exampleInputEmail1" class="form-label">Email address</label>
-                        <input type="email" class="form-control " id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
                         <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Password</label>
-                        <input type="password" class="form-control  " id="exampleInputPassword1">
+                        <input type="password" class="form-control" id="exampleInputPassword1" required>
                     </div>
                     <div class="mb-3 form-check">
                         <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label " for="exampleCheck1">Check me out</label>
+                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
                     </div>
                     <div class="d-flex justify-content-between align-items-center reso-regi ">
-                        <button type="submit" class="btn btn-primary ps-5 pe-5">Log in</button>
-
-                        <div >
-                            <label class="pe-2" >Dont Have Account ? </label>
-                            <a href="">
-                                <span>Register</span>
-                            </a>
-
-                        </div>
-
-
-
-
+                        <button type="submit" id="loginbutton" class="btn btn-primary ps-5 pe-5">Log in</button> <!-- Add type="submit" -->
                     </div>
-
                 </form>
-
-
-
             </div>
-
         </div>
-
     </div>
-
 </div>
+
 
 <!--customer table-->
 <section id="customerAllTable">
@@ -679,6 +655,7 @@
 <script type="module" src="./controller/CustomerController.js"></script>
 <script type="module" src="./controller/ItemController.js"></script>
 <script type="module" src="./controller/OrderController.js"></script>
+<script type="module" src="./controller/loginControl.js"></script>
 
 
 
@@ -740,11 +717,12 @@ document.getElementById("sign-up-nav").addEventListener("click",function (){
 <!--Using JQuery Part for spa -->
 
 <script>
-
+    $("#header").hide();
+    $("#homeDiv").hide();
     $("#customerDiv").hide();
     $("#itemDiv").hide();
     $("#order_div").hide();
-    $("#loginDiv").hide();
+    $("#loginDiv").show();
     $("#customerAllTable").hide()
     $("#ItemAllTable").hide()
     $("#OrderHistoryPage").hide();

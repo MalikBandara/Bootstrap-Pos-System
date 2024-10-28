@@ -73,6 +73,13 @@ $("#customerSaveButton").click(function (){
 
         let customer = new CustomerModel(customerId, Cusname, CusAddress, CusSalary, mobile, email);
         customerArray.push(customer);
+        Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Customer Saved",
+            showConfirmButton: false,
+            timer: 1500
+        });
         console.log(customer);
         CustomerTableLoad();
         ClearField();
@@ -215,6 +222,13 @@ $("#CustomerUpdateButton").click(function (){
         console.log(customerArray[selected_index]);
         let UpdatedCus = new CustomerModel(customerId, Cusname, CusAddress, CusSalary, mobile, email);
         customerArray[selected_index] = UpdatedCus;
+        Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Customer Updated",
+            showConfirmButton: false,
+            timer: 1500
+        });
         console.log(customerArray[selected_index]);
         ClearField();
         CustomerTableLoad();
@@ -226,11 +240,31 @@ $("#CustomerUpdateButton").click(function (){
 
 
 $("#DeleteCustomer").click(function (){
-    console.log(customerArray);
-    customerArray.splice(index ,1);
-    ClearField();
-    CustomerTableLoad();
-    console.log(customerArray);
+
+    Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+
+    }).then((result) => {
+        if (result.isConfirmed) {
+            console.log(customerArray);
+            customerArray.splice(index ,1);
+            ClearField();
+            CustomerTableLoad();
+            console.log(customerArray);
+            Swal.fire({
+                title: "Deleted!",
+                text: "Your Customer has been deleted.",
+                icon: "success"
+            });
+        }
+    });
+
 });
 
 

@@ -108,31 +108,50 @@ $("#addItem").click(function () {
     let OdQu = parseInt($("#odQu").val()); // Parse as int
     let total = ItemPrice * OdQu; // Calculate total
 
-    // Create a new order
-    let order = new Order(orderid, date, cusID, ItemCode, ItemName, ItemPrice, QuantityH, OdQu, total);
+      if(!orderRegex(orderid)) {
+        Swal.fire({
+            title: "Check your Order Id",
+            icon: "question",
+            iconHtml: "?",
 
-    // Add order to cart
-    cart.push(order);
+            showCloseButton: true
+        });
+    } else {
 
-    // Update ItemArray
-    for (let i = 0; i < ItemArray.length; i++) {
-        if (ItemArray[i].id === ItemCode) {
-            console.log("hi" + ItemCode);
-            let update = ItemArray[i].Quantity - OdQu; // Update available quantity
-            if (update >= 0) { // Check if there is enough quantity available
-                ItemArray[i].Quantity = update;
-                console.log(ItemArray);
-                LoadItemTable();
-            } else {
-                alert("Not enough quantity available."); // Alert if not enough stock
-            }
-            break; // Exit loop once item is found and updated
-        }
-    }
 
-    console.log(cart);
-    $("#totalDisplay").text(`Total: ${total} Rs/=`); // Display total
-    loadCart(); // Refresh cart display
+          // Create a new order
+          let order = new Order(orderid, date, cusID, ItemCode, ItemName, ItemPrice, QuantityH, OdQu, total);
+
+          // Add order to cart
+          cart.push(order);
+          Swal.fire({
+              position: "center",
+              icon: "success",
+              title: "Added to Cart",
+              showConfirmButton: false,
+              timer: 1500
+          });
+
+          // Update ItemArray
+          for (let i = 0; i < ItemArray.length; i++) {
+              if (ItemArray[i].id === ItemCode) {
+                  console.log("hi" + ItemCode);
+                  let update = ItemArray[i].Quantity - OdQu; // Update available quantity
+                  if (update >= 0) { // Check if there is enough quantity available
+                      ItemArray[i].Quantity = update;
+                      console.log(ItemArray);
+                      LoadItemTable();
+                  } else {
+                      alert("Not enough quantity available."); // Alert if not enough stock
+                  }
+                  break; // Exit loop once item is found and updated
+              }
+          }
+
+          console.log(cart);
+          $("#totalDisplay").text(`Total: ${total} Rs/=`); // Display total
+          loadCart(); // Refresh cart display
+      }
 });
 
 
@@ -164,14 +183,43 @@ $("#removecart").click(function () {
     let indexToRemove = cart.findIndex((item) => item.orderid === orderid);
 
     if (indexToRemove !== -1) {
-        let removedItem = cart.splice(indexToRemove, 1)[0];
-        total -= removedItem.total;  // Update total by subtracting the removed item's total
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                let removedItem = cart.splice(indexToRemove, 1)[0];
+                total -= removedItem.total;  // Update total by subtracting the removed item's total
 
-        loadCart();  // Refresh cart display
+                // Update quantity back in ItemArray
+                for (let i = 0; i < ItemArray.length; i++) {
+                    if (ItemArray[i].id === removedItem.itemcode) { // Assuming `itemcode` is the correct property name
+                        ItemArray[i].Quantity += removedItem.ordedqty; // Restore removed quantity
+                        break;
+                    }
+                }
+
+                loadCart();  // Refresh cart display
+                LoadItemTable(); // Refresh the item table to reflect updated quantity
+
+                Swal.fire({
+                    title: "Deleted!",
+                    text: "Removed from the cart.",
+                    icon: "success"
+                });
+            }
+        });
+
     } else {
         alert("Order ID not found");
     }
 });
+
 
 
 // let dis;
@@ -195,48 +243,63 @@ $("#balancecal").click(function (){
 
 
 
-$("#purchase").click(function (){
-    let givenCash = parseFloat($("#cashGiven").val()) || 0;
-    let balance = givenCash - total;
-    $("#lastBal").text(`Balance: ${balance} Rs/=`);
+$("#purchase").click(function () {
+    let givenCash = parseFloat($("#cashGiven").val()) || 0; // Default to 0 if not a number
+    let balance = givenCash - total; // Calculate balance
+    $("#lastBal").text(`Balance: ${balance} Rs/=`); // Display balance
     let customerId = parseInt($("#CustomerId2").val(), 10); // Convert to number
     let orderId = parseInt($("#orderid").val(), 10); // Convert to number
 
-
-
-    if (customerId === orderId){
-    // Add cart to order history on checkout if cash is sufficient
-    if (balance >= 0) {
-        cart.forEach((item) => {
-            let existingOrder = orderHistory.find(order => order.orderid === item.orderid);
-            if (existingOrder) {
-                // Update total and add item details if order ID already exists
-                existingOrder.total += item.total;
-                existingOrder.items.push(item); // Add item to existing order's items
-            } else {
-                // If new order ID, create and push to history
-                let newOrder = new OrderHistory(
-                    item.orderid,
-                    item.date,
-                    item.cusid,
-                    item.total,
-                    [item] // Start with the current item in the items array
-                );
-                orderHistory.push(newOrder);
-            }
+    // Ensure customer ID and order ID validation logic aligns with your application
+    if (customerId === orderId) {
+        // Add cart to order history on checkout if cash is sufficient
+        if (balance >= 0) {
+            cart.forEach((item) => {
+                let existingOrder = orderHistory.find(order => order.orderid === item.orderid);
+                if (existingOrder) {
+                    // Update total and add item details if order ID already exists
+                    existingOrder.total += item.total;
+                    existingOrder.items.push(item); // Add item to existing order's items
+                } else {
+                    // If new order ID, create and push to history
+                    let newOrder = new OrderHistory(
+                        item.orderid,
+                        item.date,
+                        item.cusid,
+                        item.total,
+                        [item] // Start with the current item in the items array
+                    );
+                    orderHistory.push(newOrder);
+                }
+            });
+            cart.length = 0; // Clear the cart
+            loadCart(); // Reload cart display
+            Swal.fire({
+                title: "Order Placed Successfully",
+                width: 600,
+                padding: "3em",
+                color: "#716add",
+                background: "#fff url(/images/trees.png)",
+                backdrop: `
+                    rgba(0,0,123,0.4)
+                    url("/images/nyan-cat.gif")
+                    left top
+                    no-repeat
+                `
+            });
+        } else {
+            alert("Insufficient cash provided."); // Alert for insufficient cash
+        }
+    } else {
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Different Customer for order id",
+            footer: '<a href="#">Why do I have this issue?</a>'
         });
-        cart.length = 0; // Clear the cart
-        loadCart(); // Reload cart display
-        alert("Transaction completed successfully!");
-    }
-    else {
-        alert("Insufficient cash provided.");
-    }
-    }
-    else {
-        alert("customer different")
     }
 });
+
 
 
 
@@ -278,3 +341,10 @@ const loadOrderHistory = () => {
 $("#orderHistroy").click(function () {
     loadOrderHistory();
 });
+
+
+
+const orderRegex = (order) => {
+    const orderReg = /^\d+$/;
+    return orderReg.test(order);
+};

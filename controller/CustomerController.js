@@ -274,10 +274,6 @@ $("#viewAllCustomerT").click(function (){
     CustomerTableLoadAll();
 })
 
-
-
-
-
 // regex part
 
 const emailRegexMethod = (email) => {

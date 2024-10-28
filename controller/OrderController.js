@@ -1,6 +1,8 @@
 import {customerArray,ItemArray,cart} from "../db/database.js";
 import Order from "../models/OrderModel.js";
 
+let orderHistory = [];
+
 $("#customerSearch").click(function (){
 
     let customerSerachId = parseInt($("#customerSearchId").val());
@@ -124,4 +126,47 @@ $("#balancecal").click(function (){
         let balance = givenCash - dis;
 
     $("#lastBal").text(`Balance: ${balance}` + " Rs/=");
+});
+
+
+
+$("#purchase").click(function (){
+    let givenCash = parseFloat($("#cashGiven").val()) || 0;
+    let balance = givenCash - dis;
+    $("#lastBal").text(`Balance: ${balance} Rs/=`);
+
+    // Add cart to order history on checkout
+    if (balance >= 0) {
+        orderHistory.push([...cart]); // Save a copy of the cart items
+        cart.length = 0; // Clear the cart
+        loadCart(); // Reload cart display
+        alert("Transaction completed successfully!");
+    } else {
+        alert("Insufficient cash provided.");
+    }
+});
+
+
+const loadOrderHistory = () => {
+    $("#OrderHistoryTable").empty();
+
+    orderHistory.forEach((order, index) => {
+        order.forEach((item) => {
+            let row = `<tr>
+                        <td>${index + 1}</td>
+                        <td>${item.orderid}</td>
+                        <td>${item.date}</td>
+                        <td>${item.cusid}</td>
+                        <td>${item.iname}</td>
+                        <td>${item.iprice}</td>
+                        <td>${item.ordedqty}</td>
+                        <td>${item.total}</td>
+                       </tr>`;
+            $("#OrderHistoryTable").append(row);
+        });
+    });
+};
+
+$("#orderHistroy").click(function () {
+    loadOrderHistory();
 });

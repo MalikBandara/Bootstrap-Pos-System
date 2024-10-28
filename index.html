@@ -41,6 +41,9 @@
                     <li class="nav-item ms-4">
                         <a class="nav-link text-light"  id="order_nav">Order</a>
                     </li>
+                    <li class="nav-item ms-4">
+                        <a class="nav-link text-light"  id="orderHistroy">Order History</a>
+                    </li>
                     <li class="nav-item ms-4 ">
                         <a  class="btn btn-light no" role="button" id="sign-up-nav">Sign Up</a>
 
@@ -432,7 +435,7 @@
                 <h1 id="lastBal">Balance : </h1>
                 <br>
 
-                <button id="" type="button" class="btn btn-success">Purchase</button>
+                <button id="purchase" type="button" class="btn btn-success">Purchase</button>
 
             </div>
 
@@ -615,6 +618,54 @@
 </section>
 
 
+<section id="OrderHistoryPage">
+    <div class="container">
+        <h1 class="mt-5 mb-5 text-center" >View All Item</h1>
+        <div class="row justify-content-center align-items-center ">
+
+            <div class="col-12 col-lg-12 mb-1 mt-5 pt-5">
+
+
+                <div class="card p-5 bg-info bg-gradient bg-opacity-50 shadow   ">
+
+
+
+
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-custom">
+                            <thead>
+                            <tr>
+                                <th scope="col">index</th>
+                                <th scope="col">Order id</th>
+                                <th scope="col">date</th>
+                                <th scope="col">Customer id </th>
+                                <th scope="col">Item Name</th>
+                                <th scope="col">Item Price</th>
+                                <th scope="col">Order Quantity</th>
+                                <th scope="col">total</th>
+                            </tr>
+                            </thead>
+                            <tbody id="OrderHistoryTable">
+
+                            </tbody>
+                        </table>
+                    </div>
+
+
+
+                </div>
+            </div>
+
+
+
+
+
+
+        </div>
+    </div>
+</section>
+
+
 <script src="lib/jquery-3.7.1.min.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
@@ -696,6 +747,7 @@ document.getElementById("sign-up-nav").addEventListener("click",function (){
     $("#loginDiv").hide();
     $("#customerAllTable").hide()
     $("#ItemAllTable").hide()
+    $("#OrderHistoryPage").hide();
 
 
     $("#home_nav").on("click" ,function (){
@@ -706,6 +758,7 @@ document.getElementById("sign-up-nav").addEventListener("click",function (){
         $("#loginDiv").hide();
         $("#customerAllTable").hide()
         $("#ItemAllTable").hide()
+        $("#OrderHistoryPage").hide();
     });
 
     $("#customer_nav").on("click" ,function (){
@@ -715,7 +768,8 @@ document.getElementById("sign-up-nav").addEventListener("click",function (){
         $("#order_div").hide();
         $("#loginDiv").hide();
         $("#customerAllTable").hide()
-        $("#ItemAllTable").hide()
+        $("#ItemAllTable").hide();
+        $("#OrderHistoryPage").hide();
     });
 
     $("#item_nav").on("click",function (){
@@ -726,6 +780,7 @@ document.getElementById("sign-up-nav").addEventListener("click",function (){
         $("#order_div").hide();
         $("#customerAllTable").hide()
         $("#ItemAllTable").hide()
+        $("#OrderHistoryPage").hide();
     });
 
     $("#order_nav").on("click",function (){
@@ -736,6 +791,7 @@ document.getElementById("sign-up-nav").addEventListener("click",function (){
         $("#loginDiv").hide();
         $("#customerAllTable").hide();
         $("#ItemAllTable").hide();
+        $("#OrderHistoryPage").hide();
 
     });
 
@@ -746,6 +802,7 @@ document.getElementById("sign-up-nav").addEventListener("click",function (){
         $("#homeDiv").hide();
         $("#order_div").hide();
         $("#ItemAllTable").hide();
+        $("#OrderHistoryPage").hide();
     });
     $("#homeCus").on("click",function (){
         $("#loginDiv").hide();
@@ -754,6 +811,7 @@ document.getElementById("sign-up-nav").addEventListener("click",function (){
         $("#homeDiv").hide();
         $("#order_div").hide();
         $("#ItemAllTable").hide();
+        $("#OrderHistoryPage").hide();
     });
 
     $("#homeItem").on("click",function (){
@@ -763,6 +821,7 @@ document.getElementById("sign-up-nav").addEventListener("click",function (){
         $("#homeDiv").hide();
         $("#order_div").hide();
         $("#ItemAllTable").hide();
+        $("#OrderHistoryPage").hide();
     });
 
     $("#homeOrder").on("click",function (){
@@ -772,6 +831,7 @@ document.getElementById("sign-up-nav").addEventListener("click",function (){
         $("#homeDiv").hide();
         $("#order_div").show();
         $("#ItemAllTable").hide();
+        $("#OrderHistoryPage").hide();
     });
 
     $("#viewAllCustomerT").on('click',function (){
@@ -782,6 +842,7 @@ document.getElementById("sign-up-nav").addEventListener("click",function (){
         $("#homeDiv").hide();
         $("#order_div").hide();
         $("#ItemAllTable").hide();
+        $("#OrderHistoryPage").hide();
     });
 
     $("#ViewAllItem").on('click',function (){
@@ -792,6 +853,18 @@ document.getElementById("sign-up-nav").addEventListener("click",function (){
         $("#customerDiv").hide();
         $("#homeDiv").hide();
         $("#order_div").hide();
+        $("#OrderHistoryPage").hide();
+    });
+
+    $("#orderHistroy").on('click',function (){
+        $("#ItemAllTable").hide()
+        $("#customerAllTable").hide();
+        $("#loginDiv").hide();
+        $("#itemDiv").hide();
+        $("#customerDiv").hide();
+        $("#homeDiv").hide();
+        $("#order_div").hide();
+        $("#OrderHistoryPage").show();
     });
 
 

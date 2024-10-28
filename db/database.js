@@ -5,3 +5,5 @@ export let ItemArray = [];
 
 
 export let cart = [];
+
+export  let orderHistory = [];

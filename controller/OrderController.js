@@ -1,7 +1,9 @@
-import {customerArray,ItemArray,cart} from "../db/database.js";
+import {customerArray,ItemArray,cart,orderHistory} from "../db/database.js";
 import Order from "../models/OrderModel.js";
 
-let orderHistory = [];
+import OrderHistory from "../models/orderHistory.js";
+
+
 
 $("#customerSearch").click(function (){
 
@@ -16,10 +18,9 @@ $("#customerSearch").click(function (){
                 $("#cusalary").val(customerArray[i].salary);
                 $("#cuaddress").val(customerArray[i].address);
         }
-        else {
-            alert("no")
-        }
+
     }
+
 
 
 
@@ -134,7 +135,12 @@ $("#purchase").click(function (){
     let givenCash = parseFloat($("#cashGiven").val()) || 0;
     let balance = givenCash - total;
     $("#lastBal").text(`Balance: ${balance} Rs/=`);
+    let customerId = parseInt($("#CustomerId2").val(), 10); // Convert to number
+    let orderId = parseInt($("#orderid").val(), 10); // Convert to number
 
+
+
+    if (customerId === orderId){
     // Add cart to order history on checkout if cash is sufficient
     if (balance >= 0) {
         cart.forEach((item) => {
@@ -145,21 +151,26 @@ $("#purchase").click(function (){
                 existingOrder.items.push(item); // Add item to existing order's items
             } else {
                 // If new order ID, create and push to history
-                orderHistory.push({
-                    orderid: item.orderid,
-                    date: item.date,
-                    cusid: item.cusid,
-                    total: item.total,
-                    items: [item]
-                });
+                let newOrder = new OrderHistory(
+                    item.orderid,
+                    item.date,
+                    item.cusid,
+                    item.total,
+                    [item] // Start with the current item in the items array
+                );
+                orderHistory.push(newOrder);
             }
         });
-
         cart.length = 0; // Clear the cart
         loadCart(); // Reload cart display
         alert("Transaction completed successfully!");
-    } else {
+    }
+    else {
         alert("Insufficient cash provided.");
+    }
+    }
+    else {
+        alert("customer different")
     }
 });
 

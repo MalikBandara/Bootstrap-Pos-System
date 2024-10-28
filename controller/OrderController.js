@@ -135,9 +135,26 @@ $("#purchase").click(function (){
     let balance = givenCash - dis;
     $("#lastBal").text(`Balance: ${balance} Rs/=`);
 
-    // Add cart to order history on checkout
+    // Add cart to order history on checkout if cash is sufficient
     if (balance >= 0) {
-        orderHistory.push([...cart]); // Save a copy of the cart items
+        cart.forEach((item) => {
+            let existingOrder = orderHistory.find(order => order.orderid === item.orderid);
+            if (existingOrder) {
+                // Update total and add item details if order ID already exists
+                existingOrder.total += item.total;
+                existingOrder.items.push(item); // Add item to existing order's items
+            } else {
+                // If new order ID, create and push to history
+                orderHistory.push({
+                    orderid: item.orderid,
+                    date: item.date,
+                    cusid: item.cusid,
+                    total: item.total,
+                    items: [item]
+                });
+            }
+        });
+
         cart.length = 0; // Clear the cart
         loadCart(); // Reload cart display
         alert("Transaction completed successfully!");
@@ -147,25 +164,41 @@ $("#purchase").click(function (){
 });
 
 
+
 const loadOrderHistory = () => {
     $("#OrderHistoryTable").empty();
 
     orderHistory.forEach((order, index) => {
-        order.forEach((item) => {
-            let row = `<tr>
+        // Display the main row for the order with consolidated total
+        let mainRow = `<tr>
                         <td>${index + 1}</td>
-                        <td>${item.orderid}</td>
-                        <td>${item.date}</td>
-                        <td>${item.cusid}</td>
-                        <td>${item.iname}</td>
-                        <td>${item.iprice}</td>
-                        <td>${item.ordedqty}</td>
-                        <td>${item.total}</td>
+                        <td>${order.orderid}</td>
+                        <td>${order.date}</td>
+                        <td>${order.cusid}</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>${order.total}</td>
                        </tr>`;
-            $("#OrderHistoryTable").append(row);
+        $("#OrderHistoryTable").append(mainRow);
+
+        // Display each item in the order as a sub-row
+        order.items.forEach((item) => {
+            let itemRow = `<tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>${item.iname}</td>
+                            <td>${item.iprice}</td>
+                            <td>${item.ordedqty}</td>
+                            <td>${item.total}</td>
+                           </tr>`;
+            $("#OrderHistoryTable").append(itemRow);
         });
     });
 };
+
 
 $("#orderHistroy").click(function () {
     loadOrderHistory();

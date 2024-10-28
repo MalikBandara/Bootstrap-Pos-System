@@ -46,7 +46,7 @@ $("#itemSearchOrder").click(function () {
     }
 });
 
-
+let total = 0  ;
 $("#addItem").click(function (){
     let orderid = $("#orderid").val();
     let date = $("#date").val();
@@ -56,7 +56,7 @@ $("#addItem").click(function (){
     let ItemPrice = $("#Iprice").val();
     let QuantityH = $("#qtyhand").val();
     let OdQu = $("#odQu").val();
-    let total = ItemPrice * OdQu;
+    total = ItemPrice * OdQu;
 
 
     let order = new Order(orderid, date, cusID,ItemCode,ItemName,ItemPrice,QuantityH,OdQu,total);
@@ -71,28 +71,57 @@ $("#addItem").click(function (){
 
 const loadCart = () => {
     $("#cart").empty();
+    total = 0;
 
-    cart.map((Cart, index) => {
-        if (index < 5) {
-            let data = `<tr><td>${Cart.orderid}</td><td>${Cart.cusid}</td><td>${Cart.iname}</td><td>${Cart.iprice}</td><td>${Cart.ordedqty}</td><td>${Cart.total}</td></tr>`;
-            $("#cart").append(data);
-        }
+    cart.forEach((item) => {
+        total += item.total;
+        let row = `<tr>
+                    <td>${item.orderid}</td>
+                    <td>${item.cusid}</td>
+                    <td>${item.iname}</td>
+                    <td>${item.iprice}</td>
+                    <td>${item.ordedqty}</td>
+                    <td>${item.total}</td>
+                   </tr>`;
+        $("#cart").append(row);
     });
+
+    $("#totalDisplay").text(`Total: ${total} Rs/=`);
+    $("#subtotal").text("Last total: 0 Rs/=");
+    $("#lastBal").text("Balance : 0 Rs/=");
 };
 
 $("#removecart").click(function () {
-    let orderid = $("#orderid").val(); // Ensure it's the correct ID format
-    console.log("Attempting to remove order ID:", orderid);
+    let orderid = $("#orderid").val();
 
-    // Find the index of the item with the specified order ID
     let indexToRemove = cart.findIndex((item) => item.orderid === orderid);
 
     if (indexToRemove !== -1) {
-        cart.splice(indexToRemove, 1);
-        console.log("Removed item with order ID:", orderid);
-        loadCart();
+        let removedItem = cart.splice(indexToRemove, 1)[0];
+        total -= removedItem.total;  // Update total by subtracting the removed item's total
+
+        loadCart();  // Refresh cart display
     } else {
         alert("Order ID not found");
     }
 });
 
+
+let dis;
+$("#disButton").click(function (){
+   let discount = $("#discount").val();
+
+   dis = total - discount;
+
+    $("#subtotal").text(`subtotal: ${dis}` + " Rs/=");
+
+});
+
+
+$("#balancecal").click(function (){
+        let givenCash = $("#cashGiven").val();
+
+        let balance = givenCash - dis;
+
+    $("#lastBal").text(`Balance: ${balance}` + " Rs/=");
+});

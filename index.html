@@ -418,22 +418,21 @@
 
             <div class="card-body card-grid-apply">
                 <h1 id="totalDisplay">Total:</h1>
-                <h1>Sub Total: </h1>
+                <h1 id="subtotal">Last Total: </h1>
                 <div class="mb-3">
-                    <label for="CustomerId" class="form-label">Cash</label>
-                    <input type="text" class="form-control" id="CustomerId10" placeholder="">
+                    <label for="balancecal" class="form-label">Cash</label>
+                    <input type="text" class="form-control" id="cashGiven" placeholder="">
+                    <button id="balancecal" type="button" class="mt-3 btn btn-primary">calculate balance</button>
                 </div>
                 <div class="mb-3">
-                    <label for="CustomerId" class="form-label">Discount</label>
-                    <input type="number" class="form-control" id="CustomerId11" placeholder="">
+                    <label for="discount" class="form-label">Discount</label>
+                    <input type="number" class="form-control" id="discount" placeholder="">
+                    <button id="disButton" type="button" class="mt-3 btn btn-success">add discount</button>
                 </div>
-                <div class="mb-3">
-                    <label for="CustomerId" class="form-label">Balance</label>
-                    <input type="text" class="form-control" id="CustomerId22" placeholder="">
-                </div>
+                <h1 id="lastBal">Balance : </h1>
                 <br>
 
-                <button type="button" class="btn btn-success">Purchase</button>
+                <button id="" type="button" class="btn btn-success">Purchase</button>
 
             </div>
 
@@ -458,7 +457,7 @@
                                 <th scope="col">item name</th>
                                 <th scope="col">Price</th>
                                 <th scope="col">Quantity</th>
-                                <th scope="col">Total</th>
+                                <th scope="col">sub total</th>
                             </tr>
                             </thead>
                             <tbody id="cart">

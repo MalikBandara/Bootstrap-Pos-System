@@ -109,21 +109,21 @@ $("#removecart").click(function () {
 });
 
 
-let dis;
-$("#disButton").click(function (){
-   let discount = $("#discount").val();
-
-   dis = total - discount;
-
-    $("#subtotal").text(`subtotal: ${dis}` + " Rs/=");
-
-});
+// let dis;
+// $("#disButton").click(function (){
+//    let discount = $("#discount").val();
+//
+//    dis = total - discount;
+//
+//     $("#subtotal").text(`subtotal: ${dis}` + " Rs/=");
+//
+// });
 
 
 $("#balancecal").click(function (){
         let givenCash = $("#cashGiven").val();
 
-        let balance = givenCash - dis;
+        let balance = givenCash - total;
 
     $("#lastBal").text(`Balance: ${balance}` + " Rs/=");
 });
@@ -132,7 +132,7 @@ $("#balancecal").click(function (){
 
 $("#purchase").click(function (){
     let givenCash = parseFloat($("#cashGiven").val()) || 0;
-    let balance = givenCash - dis;
+    let balance = givenCash - total;
     $("#lastBal").text(`Balance: ${balance} Rs/=`);
 
     // Add cart to order history on checkout if cash is sufficient

@@ -259,7 +259,7 @@ $("#DeleteCustomer").click(function (){
             console.log(customerArray);
             Swal.fire({
                 title: "Deleted!",
-                text: "Your Customer has been deleted.",
+                text: "Customer has been deleted.",
                 icon: "success"
             });
         }

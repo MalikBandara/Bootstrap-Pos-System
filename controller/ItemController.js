@@ -52,15 +52,53 @@ $("#AddNewItem").click(function (){
     console.log(IPrice);
     console.log(Quantity);
 
+    if (!regexForItemName(IName)) {
+        Swal.fire({
+            title: "Item Name Invalid ? ",
+            icon: "question",
+            iconHtml: "?",
 
-    let Item = new ItemModel(id, IName , IPrice , Quantity);
+            showCloseButton: true
+        });
+    }
+    else if(!priceRegexMethod(IPrice)) {
+        Swal.fire({
+            title: "Reenter Price !",
+            icon: "question",
+            iconHtml: "?",
 
-    ItemArray.push(Item);
-    console.log(ItemArray);
-    clearItem();
-    LoadItemTable();
+            showCloseButton: true
+        });
+    }
+    else if(!regexForQuantity(Quantity)) {
+        Swal.fire({
+            title: "invalid Quantity !",
+            icon: "question",
+            iconHtml: "?",
+
+            showCloseButton: true
+        });
+    }
+
+    else {
+
+        let Item = new ItemModel(id, IName, IPrice, Quantity);
 
 
+
+        ItemArray.push(Item);
+        Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Item Saved",
+            showConfirmButton: false,
+            timer: 1500
+        });
+        console.log(ItemArray);
+        clearItem();
+        LoadItemTable();
+
+    }
 
 });
 
@@ -104,6 +142,13 @@ $("#UpdateItems").click(function (){
 
     let Item = new ItemModel(id,IName,IPrice,Quantity);
     ItemArray[index] = Item;
+    Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Item Updated",
+        showConfirmButton: false,
+        timer: 1500
+    });
     clearItem();
     LoadItemTable();
 
@@ -113,9 +158,27 @@ $("#UpdateItems").click(function (){
 // delete
 
 $("#DeleteItem").click(function (){
-    ItemArray.splice(index , 1);
-    clearItem();
-    LoadItemTable();
+    Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            ItemArray.splice(index , 1);
+            clearItem();
+            LoadItemTable();
+            Swal.fire({
+                title: "Deleted!",
+                text: "Item has been deleted.",
+                icon: "success"
+            });
+        }
+    });
+
 });
 
 
@@ -147,4 +210,21 @@ $("#ItemSearch").click(function () {
         clearItem();
     }
 });
+
+
+
+const priceRegexMethod = (price) => {
+    const emailRegex = /^\d+(\.\d{1,2})?$/;
+    return emailRegex.test(price);
+};
+const regexForQuantity = (quantity) => {
+    const emailRegex = /^[1-9]\d*$/;
+    return emailRegex.test(quantity);
+};
+const regexForItemName = (Iname) => {
+    const emailRegex = /^[a-zA-Z\s\-_.]{1,50}$/;
+    return emailRegex.test(Iname);
+};
+
+
 

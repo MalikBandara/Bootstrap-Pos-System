@@ -8,6 +8,7 @@ const getNextCustomerId = () => {
     return customerArray.length + 1;
 };
 
+
 $("#customerSaveButton").click(function (){
     let customerId = getNextCustomerId();
     let Cusname = $("#name").val();
@@ -23,12 +24,61 @@ $("#customerSaveButton").click(function (){
     console.log(mobile);
     console.log(email);
 
-    let customer = new CustomerModel(customerId,Cusname,CusAddress,CusSalary,mobile,email);
-    customerArray.push(customer);
+    if (Cusname.length === 0 ) {
+        Swal.fire({
+            title: "Name is Empty ? ",
+            icon: "question",
+            iconHtml: "?",
 
-    console.log(customer);
-    CustomerTableLoad();
-    ClearField();
+            showCloseButton: true
+        });
+    }
+    else if(CusAddress.length === 0) {
+        Swal.fire({
+            title: "Address is Empty ? ",
+            icon: "question",
+            iconHtml: "?",
+
+            showCloseButton: true
+        });
+    }
+    else if(CusSalary.length === 0) {
+        Swal.fire({
+            title: "Empty Salary ? ",
+            icon: "question",
+            iconHtml: "?",
+
+            showCloseButton: true
+        });
+    }
+    else if(!phoneRegexMethod(mobile)) {
+        Swal.fire({
+            title: "Mobile incorrect !",
+            icon: "question",
+            iconHtml: "?",
+
+            showCloseButton: true
+        });
+    }
+    else if(!emailRegexMethod(email)) {
+        Swal.fire({
+            title: "Invalid Email !",
+            icon: "question",
+            iconHtml: "?",
+
+            showCloseButton: true
+        });
+    }
+    else {
+
+        let customer = new CustomerModel(customerId, Cusname, CusAddress, CusSalary, mobile, email);
+        customerArray.push(customer);
+        console.log(customer);
+        CustomerTableLoad();
+        ClearField();
+
+    }
+
 });
 
 
@@ -114,12 +164,61 @@ $("#CustomerUpdateButton").click(function (){
     let mobile = $("#mobile").val();
     let email = $("#email").val();
 
-    console.log(customerArray[selected_index]);
-    let UpdatedCus = new CustomerModel(customerId,Cusname,CusAddress,CusSalary,mobile,email);
-    customerArray[selected_index]=UpdatedCus;
-    console.log(customerArray[selected_index]);
-    ClearField();
-    CustomerTableLoad();
+
+    if (Cusname.length === 0 ) {
+        Swal.fire({
+            title: "Name is Empty ? ",
+            icon: "question",
+            iconHtml: "?",
+
+            showCloseButton: true
+        });
+    }
+    else if(CusAddress.length === 0) {
+        Swal.fire({
+            title: "Address is Empty ? ",
+            icon: "question",
+            iconHtml: "?",
+
+            showCloseButton: true
+        });
+    }
+    else if(CusSalary.length === 0) {
+        Swal.fire({
+            title: "Empty Salary ? ",
+            icon: "question",
+            iconHtml: "?",
+
+            showCloseButton: true
+        });
+    }
+    else if(!phoneRegexMethod(mobile)) {
+        Swal.fire({
+            title: "Mobile incorrect !",
+            icon: "question",
+            iconHtml: "?",
+
+            showCloseButton: true
+        });
+    }
+    else if(!emailRegexMethod(email)) {
+        Swal.fire({
+            title: "Invalid Email !",
+            icon: "question",
+            iconHtml: "?",
+
+            showCloseButton: true
+        });
+    }
+
+    else {
+        console.log(customerArray[selected_index]);
+        let UpdatedCus = new CustomerModel(customerId, Cusname, CusAddress, CusSalary, mobile, email);
+        customerArray[selected_index] = UpdatedCus;
+        console.log(customerArray[selected_index]);
+        ClearField();
+        CustomerTableLoad();
+    }
 });
 
 
@@ -140,3 +239,19 @@ $("#DeleteCustomer").click(function (){
 $("#viewAllCustomerT").click(function (){
     CustomerTableLoadAll();
 })
+
+
+
+
+
+// regex part
+
+const emailRegexMethod = (email) => {
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return emailRegex.test(email);
+};
+
+const phoneRegexMethod = (mobile) => {
+    const sriLankanMobileRegex = /^(?:\+94|0)?7[0-9]{8}$/;
+    return sriLankanMobileRegex.test(mobile);
+};

@@ -525,3 +525,8 @@
 .margine{
     margin-top: 200px;
 }
+
+body {
+    background: rgb(240, 242, 255); /* Fallback color */
+    background: linear-gradient(90deg, rgb(255, 255, 255) 0%, rgb(180, 210, 255) 30%, rgb(130, 170, 255) 60%, rgb(200, 220, 255) 100%);
+}
